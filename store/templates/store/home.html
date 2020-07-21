@@ -1,0 +1,30 @@
+{% extends "store/base.html" %}
+{% block content %}
+    <div class="mt-5 mb-3" style="text-align: center;">
+        <h1> <b>Welcome</b>  </h1>
+    </div>
+    <div class="mt-4 mb-5">
+        <form style="float: right;" class="form-inline " method="get" action="/result">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" name="book" aria-label="Search">
+            <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+    <div class="pt-5 mb-5">
+        <h3>Some of our best collections</h3>
+    </div>
+    {% for book in books %}
+    <article class="media content-section">
+        <div class="media-body">
+          <div class="article-metadata">
+            <h1 class="mr-2">
+                {{ book.name }}
+            </h1>
+            <small class="text-muted">{{ book.date }}</small>
+            <small style="float: right;">Availabilty - {{ book.quan }}</small>
+          </div>
+          <h3 class="article-title">Written by - {{ book.author }}</h3>
+          <p class="article-content">{{ book.desc }}</p>
+        </div>
+    </article>
+    {% endfor %}
+{% endblock content %}

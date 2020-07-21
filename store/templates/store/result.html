@@ -1,0 +1,25 @@
+{% extends "store/base.html" %}
+{% block content %}
+    <h1 class="mt-5 mb-5"> Welcome </h1>
+    <h3 class="pb-4">Results</h3>
+    {% if flag %}
+        <article class="media content-section">
+            <div class="media-body">
+            <div class="article-metadata">
+                <h1 class="mr-2">
+                    {{ book.name }}
+                </h1>
+                <small class="text-muted">{{ book.date }}</small>
+                <small style="float: right;">Availabilty - {{ book.quan }}</small>
+            </div>
+            <h3 class="article-title">Written by - {{ book.author }}</h3>
+            <p class="article-content">{{ book.desc }}</p>
+            </div>
+        </article>
+    
+    {% else %}
+        <h3>Sorry! Nothing found</h3>
+    {% endif %}
+    <br>
+    <a class="btn btn-primary" href="{% url 'store-home'%}" role="button">Back</a>
+{% endblock content %}
